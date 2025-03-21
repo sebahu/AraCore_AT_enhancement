@@ -144,7 +144,7 @@ range5 = range;
 [minFlux, maxFlux, exit_code, opt_bio]=slowFVA(ecModel_batch,0.99);
 range(maxFlux > 0) = 1 - minFlux(maxFlux > 0) ./ maxFlux(maxFlux > 0);
 
-[minFlux5, maxFlux5]=slowFVA(ecModel_expanded,0.99);
+[minFlux5, maxFlux5, exit_code, opt_bio_expanded]=slowFVA(ecModel_expanded,0.99);
 range5(maxFlux5 > 0) = 1 - minFlux5(maxFlux5 > 0) ./ maxFlux5(maxFlux5 > 0);
 
 % biomass reactions have indexes 232 to 234
