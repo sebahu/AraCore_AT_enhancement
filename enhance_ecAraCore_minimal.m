@@ -328,7 +328,7 @@ ko_prot_1 = extractAfter(extractBefore(ko_prots5_b,"___"),"prot_");
 ko_prot_2 = extractAfter(extractAfter(ko_prots5_b,"___"),"prot_");
 resultTable = table(ko_prot_1, ko_prot_2, percentChangeBiomass4, percentChangeBiomass5, ...
 'VariableNames', ["Knock out protein 1"; "Knock out protein 2";
-    "change of biomass w/o new activities"; "change of biomass w/ new activities"]);
+    "percentage change of biomass w/o new activities"; "percentage change of biomass w/ new activities"]);
 writetable(resultTable, "double_knockouts.csv");
 
 
