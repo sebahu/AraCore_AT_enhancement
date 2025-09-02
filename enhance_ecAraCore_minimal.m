@@ -320,7 +320,15 @@ disp("Optimal biomass prodcution reduced by 4.9%, no reduction with side reactio
     string(sum(optBiomass5_b(contains(ko_prots5_b,"prot_Q8RXU4"))>0.999*opt_bio_expanded ...
                 & optBiomass4_b(contains(ko_prots4_b,"prot_Q8RXU4"))<0.951*opt_bio)));
 
-
-
+optBiomass5_max = max(optBiomass5_b);
+optBiomass4_max = max(optBiomass4_b);
+percentChangeBiomass5 = round(100*(optBiomass5_b./optBiomass5_max - 1),2);
+percentChangeBiomass4 = round(100*(optBiomass4_b./optBiomass4_max - 1),2);
+ko_prot_1 = extractAfter(extractBefore(ko_prots5_b,"___"),"prot_");
+ko_prot_2 = extractAfter(extractAfter(ko_prots5_b,"___"),"prot_");
+resultTable = table(ko_prot_1, ko_prot_2, percentChangeBiomass4, percentChangeBiomass5, ...
+'VariableNames', ["Knock out protein 1"; "Knock out protein 2";
+    "change of biomass w/o new activities"; "change of biomass w/ new activities"]);
+writetable(resultTable, "double_knockouts.csv");
 
 
